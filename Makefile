@@ -1,4 +1,4 @@
-SOURCE=Dockerfile
+SOURCE=report
 IMAGE=paperist/alpine-texlive-ja:2020
 
 # build container image
@@ -13,16 +13,8 @@ build:
 		${IMAGE} \
 		sh run.sh
 
-# create new container and execute hello.py
-.PHONY: hello
-hello:
-	docker container run -it --rm \
-		-v ${PWD}/workdir:/workdir \
-		-w /workdir \
-		${IMAGE} \
-		bash -c "python3 hello.py"
 
-# clean up all stopped containers
+# clean up
 .PHONY: clean
 clean:
-	docker container prune
+	rm -rf ./*aux ./*dvi

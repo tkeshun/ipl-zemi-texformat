@@ -1,5 +1,4 @@
 #!/bin/sh
-FILEMAME="report"
-platex ${FILENAME}.tex
-platex ${FILENAME}.tex
-dvipdfmx ${FILENAME}.dvi
+platex report.tex
+platex report.tex
+dvipdfmx report.dvi
